@@ -101,3 +101,57 @@ set([1, 1, 2, 2, 4])
 # %%
 # 1. saisir un entier compris entre 0 et 86400 (sans contrôle)
 # 2. afficher l'heure qu'il est à partir de minuit
+# il est xh ymn zs
+entry = input("saisir un entier entre 0 et 86400: ")
+entry = int(entry)
+
+nb_heures = entry // 3600
+nb_minutes = ( entry % 3600 ) // 60
+nb_secondes = entry % 60
+
+# suboptimal
+# print("il est " + str(nb_heures) + "h " + str(nb_minutes) + "mn")
+# print("il est", nb_heures, "h", nb_minutes, "mn")
+
+# templating python2
+# print("il est %dh %dmn" % (nb_heures, nb_minutes))
+
+# templating python3
+# print("il est {hour}h {min}mn, soit {sec:.2f}".format(hour=nb_heures, min=nb_minutes, sec=entry/3600))
+
+# f-strings
+print(f"il est {nb_heures}h {nb_minutes}mn, soit {entry/3600:.2f}h")
+# %%
+entry = "10000"
+# vérifier que entry est une chaine numérique de type entier naturel
+if entry.isnumeric():
+    entry = int(entry)
+    # if 0 <= entry and entry < 86400:
+    if 0 <= entry < 86400:
+        print("bonne valeur")
+    elif entry >= 86400:
+        print("hors range !!")
+else:
+    print(f"{entry} non convertible en int !")
+# %%
+# opérateur ternaire
+# cond = True
+cond = 10 < 20
+# toutes les valeurs fausses
+# 0, 0., "", [], (), {}, set(), False, None
+if not cond:
+    param = 10
+else:
+    param = 20
+
+# en c: param = cond ? 10 : 20;
+param = 10 if not cond else 20
+param
+# %%
+# %%
+# retourne la premère valeur vraie
+None or 20
+
+# retourne la dernière valeur vraie
+"bonjour" and "les gens"
+# %%
