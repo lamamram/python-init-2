@@ -25,7 +25,31 @@ if not issues and values:
     moy = sum(values) / len(values)
     print(f"moyenne de {values}: {round(moy, 2)}")
 else:
-    print(f"{issues}: pas des ints !")
+    print(f"{set(issues)}: pas des ints !")
 
 # %%
+import sys
+# idem en interrompant la boucle dès qu'une erreur de conversion survient
+DELIM = ","
+values = input(f"veuillez saisir des entiers sépars par {DELIM}: ")
+values = values.split(DELIM)
+if not values:
+    print("liste vide!!")
+    sys.exit(0)
+
+for i, val in enumerate(values):
+    # if val.isnumeric() or val[0] == "-" and val[1:].isnumeric():
+    if val.isnumeric() or val.startswith("-") and val[1:].isnumeric():
+        values[i] = int(val)
+    else:
+        print(f"{val} non convertible !!")
+        break
+# si la boucle se termine normalement
+# for: l'itérable est entièrement consommé
+# while: on sort sur la condition fausse
+# => si on ne rencontre jamais break
+else:
+    moy = sum(values) / len(values)
+    print(f"moyenne de {values}: {round(moy, 2)}")
+
 # %%
