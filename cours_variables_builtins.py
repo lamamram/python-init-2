@@ -155,3 +155,32 @@ None or 20
 # retourne la dernière valeur vraie
 "bonjour" and "les gens"
 # %%
+
+# mutables vs immutables
+_str, lst = "abcde", [1, 2, 3]
+# mutable: opération interne qui ne change pas l'emplacement mém.
+print(id(lst))
+lst[0] = -1
+lst, id(lst)
+
+# immutabilité: impossible de changer en interne
+# on change par réafecctation de la variblae contenant
+# (1, 2, 3)[0] = -1
+# _str[0] = "A"
+
+_str = _str.capitalize()
+_str
+# %%
+# ATTENTION au passage par référence
+# pour les mutables => list et dict
+lst = [1, 2, 3]
+# avec les mutables les opération internes modifient toutes les variables
+# qui référence l'emplacement mém.
+lst2 = lst
+# copie creuse, i.e indépendante en mém.
+lst3 = lst.copy()
+# idem: lst3 = lst[:]
+lst2.append(4)
+lst3.append(4)
+lst is lst2, lst is lst3
+# %%
