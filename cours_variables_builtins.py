@@ -99,3 +99,5 @@ list("numéro") + list(("uno",))
 # dédoublonnage avec conversion list => set
 set([1, 1, 2, 2, 4])
 # %%
+# 1. saisir un entier compris entre 0 et 86400 (sans contrôle)
+# 2. afficher l'heure qu'il est à partir de minuit
