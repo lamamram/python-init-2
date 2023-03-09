@@ -67,16 +67,25 @@ parse_template.__annotations__
 parse_template.__doc__
 # %%
 # *: tout ce qui est à droite doit être nommé à l'appel
+# **kwargs: arguments nommés de nb inconnu, optionnels
+# 
 def sql_connect(*,
         host, username, passwd, db_name, 
-        port=3306, encoding="utf-8", session_opt1=None):
-    pass
+        port=3306, encoding="utf-8", **opts):
+    """
+    connexion bdd
+    arguments **
+    debug: True | False: mode debug
+    """
+    if "debug" in opts and opts["debug"]:
+        print(host, username)
 
 sql_connect(
     host="localhost", 
     username="root", 
     passwd="123456!", 
-    db_name="project")
+    db_name="project",
+    debug=True)
 # %%
 
 # arguements *args: généralisation à n paramètres
