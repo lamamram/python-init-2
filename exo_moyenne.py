@@ -53,3 +53,42 @@ else:
     print(f"moyenne de {values}: {round(moy, 2)}")
 
 # %%
+# version en programmtion foncitonnelle
+# filter filtre un itérable d'après les valeurs de retour d'une fonction
+# sur ses éléments
+# map applique une fonction à chaque élém. d'un itérable et retourne les
+# données transformée
+
+# pour des transformations en une expression
+# on utilisera des lambda qui sont des fonctions sans noms, 
+# => à usage unique
+import re
+
+int_pattern = "^-?[0-9]+$"
+
+def is_int(_str: str) -> bool:
+     return (
+          _str.isnumeric()
+          or _str.startswith("-") and _str[1:].isnumeric())
+
+def calcul_moyenne(values: list, precision: int=2):
+    # filtered = list(filter(is_int, values))
+    filtered = list(filter(
+        lambda v: re.match(int_pattern, v), 
+        values))
+    converted = list(map(int, filtered))
+    issues = list(set(values) - set(filtered))
+    print(issues)
+    return round(sum(converted)/len(converted), precision)
+
+calcul_moyenne(["1", "-4", "two"])
+# %%
+rows = ["row_1", "row_20", "row_13", "row_6"]
+# rows.sort()
+sorted(
+    rows, 
+    key=lambda r: int(r[4:]), 
+    reverse=True
+)
+
+# %%

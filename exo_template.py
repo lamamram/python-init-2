@@ -36,7 +36,9 @@ while "((" in _template:
 # tpl, values: paramètres positionnels / obligatoires
 # slot, default: paramètres nommés / optionnels
 
-# : str, ..., : tuple= ...: annotations => purement informatif
+# : str, ..., : tuple= ...: annotations 
+# => purement informatif
+# => aide à l'autocomplétion dans les fonctions
 def parse_template(tpl: str, values: dict, slot: tuple=("{{", "}}"), default: str="N/A") -> str:
     """
     moteur de template light pour injection de variables
