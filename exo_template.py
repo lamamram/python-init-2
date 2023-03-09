@@ -68,7 +68,7 @@ parse_template.__doc__
 # %%
 # *: tout ce qui est à droite doit être nommé à l'appel
 # **kwargs: arguments nommés de nb inconnu, optionnels
-# 
+# arguments placés dans un dictionnaire dans le corps de la fonction
 def sql_connect(*,
         host, username, passwd, db_name, 
         port=3306, encoding="utf-8", **opts):
