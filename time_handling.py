@@ -30,3 +30,18 @@ cuisson_oeuf_coque = timedelta(minutes=3)
 a_table = datetime.now() + cuisson_oeuf_coque
 a_table
 # %%
+# faire un timer
+from time import time, sleep
+class MyTimer:
+    def __enter__(self):
+        self.start = time()
+    
+    def __exit__(self, x_typ, x_msg, x_trace):
+        print(f"block executed in: {round(time() - self.start, 2)}s")
+
+with MyTimer():
+    sleep(3.5)
+
+
+
+# %%
