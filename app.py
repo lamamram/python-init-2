@@ -30,6 +30,12 @@ from utils import calcul_moyenne
 
 values = ["1", "-6", "truc"]
 
+# section programme principal
+if __name__ == "__main__":
 # utils.maths.calcul_moyenne(values)
-calcul_moyenne(values)
+    calcul_moyenne(values)
+# %%
+import utils.maths
+
+print(utils.maths.__name__)
 # %%

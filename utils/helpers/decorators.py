@@ -6,7 +6,7 @@ def type_ctrl(f):
     # signature universelle
     def wrapper(*a, **kw):
         # comportement ajouté
-        for param, typ in f.__annotations__:
+        for param, typ in f.__annotations__.items():
             print(param, typ) 
         ret = f(*a, **kw)
         # ...
