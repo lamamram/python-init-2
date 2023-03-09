@@ -1,4 +1,5 @@
 import re
+from typing import List
 ## attention, les chemins d'imports sont calculés
 # depuis le programme PRINCIPAL
 # chemin global depuis la racine du projet
@@ -17,7 +18,7 @@ def is_int(_str: str) -> bool:
 # calcul_moyenne = type_ctrl(calcul_moyenne)
 
 @type_ctrl
-def calcul_moyenne(values: list, precision: int=2):
+def calcul_moyenne(values: List[str], precision: int=2):
     # filtered = list(filter(is_int, values))
     filtered = list(filter(
         lambda v: re.match(INT_PATTERN, v), 
@@ -28,6 +29,6 @@ def calcul_moyenne(values: list, precision: int=2):
     return round(sum(converted)/len(converted), precision)
 
 
-# planquer des tests
+# planquer des tests quand on importe le module
 if __name__ == "__main__":
      calcul_moyenne(["0"])
