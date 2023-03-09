@@ -28,11 +28,10 @@ parse_tpl(tpl, user)
 # from utils.maths import calcul_moyenne
 from utils import calcul_moyenne
 
-values = ["1", "-6", "truc"]
-
 # section programme principal
 if __name__ == "__main__":
-# utils.maths.calcul_moyenne(values)
+    # utils.maths.calcul_moyenne(values)
+    values = ["1", "-6", "truc"]
     calcul_moyenne(values)
 # %%
 import utils.maths
