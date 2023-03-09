@@ -101,6 +101,9 @@ class Resistance:
        self.__voltage = voltage
        self.set_current(current)
     
+    def __add__(self, res: Resistance):
+        return self.get_resistance() + res.get_resistance()
+
     # méthode publique: point d'entrée
     def set_current(self, current: int):
         self.__current = current
@@ -119,8 +122,10 @@ if __name__ == "__main__":
         format="%(asctime)s: %(message)s", 
         datefmt="%Y/%m/%d %I:%M")
     
-    res = Resistance(1000, 0)
-    print(res.get_resistance())
+    # res = Resistance(1000, 0)
+    # print(res.get_resistance())
+    res1, res2 = Resistance(1000, 1000), Resistance(1000, 500)
+    print(res1 + res2)
 # %%
 # autres méthodes magiques intéressantes
 
@@ -156,3 +161,4 @@ try:
     n = Note(23)
 except RangeError as e:
     print(e)
+# %%
