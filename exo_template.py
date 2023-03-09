@@ -78,3 +78,29 @@ sql_connect(
     passwd="123456!", 
     db_name="project")
 # %%
+
+# arguements *args: généralisation à n paramètres
+# ces arguments sont positionnels, mais on ne connaît pas leur nb
+print("un")
+print("un", "deux")
+
+def add(a, b):
+    return a + b
+
+def add(*nums):
+    print(nums, type(nums))
+    return sum(nums)
+
+add(1, 2)
+add(1, 2, 3, 5)
+
+nbs = (1, 2, 3, 5)
+
+# %%
+# utilisation des *args à l'appel
+# dispatche une liste ou un tuple dans les arguments d'une fonction
+def func(p1, p2):
+    return p1, p2
+
+func(*["p1", "p2"])
+# %%
