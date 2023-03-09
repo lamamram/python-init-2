@@ -77,14 +77,20 @@ class Resistance:
 if __name__ == "__main__":
     # gestion d'erreur: capture d'exceptions
     try:
-        res = Resistance(voltage=1000, current=0) 
+        res = Resistance(voltage=1000, current=10) 
         # pb des attributs publics, donc accessible et réaffectable depuis
         # l'extérieur de la classe
         # res.current = 0
         # res.set_current(1000)
         res.get_resistance()
+    except ValueError as e:
+        print(f"pb de valeur: {e}")
+    # capture tout
     except Exception as e:
         print(e)
+    # s'exécute si aucune exception n'est levée
+    else:
+        print("calcul normal !!!")
 # %%
 # version alternative
 import logging
@@ -116,3 +122,37 @@ if __name__ == "__main__":
     res = Resistance(1000, 0)
     print(res.get_resistance())
 # %%
+# autres méthodes magiques intéressantes
+
+class Truc:
+    def __init__(self, p) -> None:
+        self.param = p
+    def __str__(self) -> str:
+        return f"objet truc de param {self.param}"
+
+t = Truc(10)
+dir(t)
+# affichage par défaut
+print(t)
+
+# %%
+# héritage de classe: RangeError devient une exception
+class RangeError(Exception):
+    def __init__(self, min_val, max_val) -> None:
+        self.min_val = min_val
+        self.max_val = max_val
+    
+    def __str__(self) -> str:
+        return f"valeur hors intervalle [{self.min_val}, {self.max_val}]"
+
+class Note:
+    value = 0
+    def __init__(self, value) -> None:
+        if 0 < value < 20:
+            self.value = value
+        else: raise RangeError(0, 20)
+
+try:
+    n = Note(23)
+except RangeError as e:
+    print(e)
