@@ -51,3 +51,21 @@ with open(
     print(next(f))
     for row in f: print(row)
 # %%
+# conversion de données tabulaires en json
+import json
+header = ["id", "name", "age"]
+
+data = [
+    [1, "joe", 24],
+    [2, "jane", 33]
+]
+
+# {"id": 1, "name": "joe", "age": 24}
+# dans la lambda, header est un paramètre libre
+records = list(map(lambda r : dict(zip(header, r)), data))
+
+with open("users.json", "w", encoding="utf-8") as json_f:
+    json.dump(records, json_f, indent=2)
+
+json.dumps(records, separators=(",", ":"))
+# %%
