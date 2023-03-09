@@ -22,3 +22,14 @@ user = {"name": "LAMAM", "age": 40}
 parse_tpl(tpl, user)
 
 # %%
+# imports depuis un package
+# import utils.maths
+# __init__.py est ibkigatoire, même vide
+# from utils.maths import calcul_moyenne
+from utils import calcul_moyenne
+
+values = ["1", "-6", "truc"]
+
+# utils.maths.calcul_moyenne(values)
+calcul_moyenne(values)
+# %%
